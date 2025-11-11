@@ -2,7 +2,6 @@ import express from 'express';
 import {
   getProducts,
   getProductById,
-  searchProducts,
   createProduct,
   updateProduct,
   deleteProduct
@@ -10,12 +9,19 @@ import {
 
 const router = express.Router();
 
+// GET /api/products?search=...  (sökning hanteras i getProducts)
 router.get('/', getProducts);
-router.get('/:id', getProductById);
-router.post('/', createProduct);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
-router.get('/', searchProducts); // if you're combining it with getProducts, use conditionally
 
+// GET /api/products/:id
+router.get('/:id', getProductById);
+
+// POST /api/products
+router.post('/', createProduct);
+
+// PUT /api/products/:id
+router.put('/:id', updateProduct);
+
+// DELETE /api/products/:id
+router.delete('/:id', deleteProduct);
 
 export default router;
