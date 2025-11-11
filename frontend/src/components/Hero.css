@@ -1,0 +1,42 @@
+/* Hero Section Styles */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://i.etsystatic.com/24864053/r/il/f61ca1/5586273288/il_1080xN.5586273288_i3q4.jpg') no-repeat center center/cover;  /* Background image */
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 600px;  /* Limits content width */
+}
+
+.hero-title {
+  font-size: 3rem;  /* Big, bold title */
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: black;
+}
+
+.cta-button {
+  background-color: #ff6347; /* A vibrant color for the CTA button */
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d9534f;  /* A hover effect for the CTA button */
+}

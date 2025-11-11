@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+.navbar-links li a,
+.navbar-links li button {
+  text-decoration: none;
+  color: black;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.navbar-links li button:hover,
+.navbar-links li a:hover {
+  text-decoration: underline;
+}

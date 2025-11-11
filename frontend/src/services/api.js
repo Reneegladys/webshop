@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "/api",
+  baseURL: "http://localhost:5000/api",
 });
 
 API.interceptors.request.use((req) => {
@@ -17,7 +17,19 @@ export const login = (data) => API.post("/auth/login", data);
 export const register = (data) => API.post("/auth/register", data);
 
 // Products
-export const getProducts = (search) => API.get(`/products?search=${search}`);
+export const getProducts = (search = '') => {
+  const url = search ? `/products?search=${search}` : '/products';
+  return API.get(url)
+    .then(response => {
+      console.log("API response:", response.data); // Loggar svar från API
+      return response.data;  // Returnerar datan från API
+    })
+    .catch(error => {
+      console.error("Error fetching products:", error);
+      throw error;
+    });
+};
+
 export const getProductById = (id) => API.get(`/products/${id}`);
 
 // Orders

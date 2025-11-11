@@ -1,31 +1,37 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import './Navbar.css';
+
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    history.push('/login');
+    navigate('/login');
   };
 
   return (
     <nav className="navbar">
-      <Link to="/">Hem</Link>
-      <Link to="/products">Produkter</Link>
+      <ul className="navbar-links">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Products</Link></li>
 
-      {user ? (
-        <>
-          <span>Hej, {user.email}</span>
-          <button onClick={handleLogout}>Logga ut</button>
-        </>
-      ) : (
-        <>
-          <Link to="/login">Logga in</Link>
-          <Link to="/register">Registrera</Link>
-        </>
-      )}
+        {user ? (
+          <>
+            <li><span>Hej, {user.email}</span></li>
+            <li><button onClick={handleLogout}>Logga ut</button></li>
+            <li><Link to="/orders">Mina beställningar</Link></li>
+          </>
+        ) : (
+          <>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
+          </>
+        )}
+      </ul>
     </nav>
   );
 };
